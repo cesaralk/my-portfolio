@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesar Al-Khatib - Full Stack Developer & Creative Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #555;
+        }
+
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #764ba2;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .section h2 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9ff, #e8f0ff);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #e0e8ff;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid #f0f0f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-card h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+
+        .project-card .role {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-card .period {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .project-card .description {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tech-used {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #f0f7ff;
+            color: #667eea;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            border: 1px solid #e0e8ff;
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 40px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 20px;
+            width: 15px;
+            height: 15px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .experience-item h3 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .experience-item .company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .education-card {
+            background: linear-gradient(135deg, #f8f9ff, #e8f0ff);
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #e0e8ff;
+        }
+
+        .education-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .education-card .school {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .education-card .period {
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .cta-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .contact-info {
+                gap: 15px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Cesar Hamza Al-Khatib</h1>
+            <p class="subtitle">Full Stack Developer & Creative Professional</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:ceasar.elkhatib@gmail.com">ceasar.elkhatib@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱</span>
+                    <a href="tel:+96170864221">+961 70 864 221</a>
+                </div>
+                <div class="contact-item">
+                    <span>💻</span>
+                    <a href="https://github.com/cesaralk" target="_blank">GitHub</a>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Lebanon</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I'm an enthusiastic Computer Science graduate with a unique blend of technical expertise and creative vision. My journey spans web development, graphic design, and digital media management, giving me a comprehensive understanding of how technology and creativity intersect to create meaningful user experiences.</p>
+                
+                <p>With hands-on experience in full-stack development and a strong foundation in design principles, I bring both analytical problem-solving skills and creative flair to every project. My diverse background in journalism, management, and technical roles has taught me to communicate effectively, lead teams, and deliver results under pressure.</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2>Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>💻 Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C#</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>🛠️ Frameworks & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">WordPress</span>
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Microsoft Office</span>
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">3ds Max</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>🎨 Creative Suite</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Adobe Photoshop</span>
+                        <span class="skill-tag">Adobe Illustrator</span>
+                        <span class="skill-tag">Graphic Design</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Social Media Design</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>🌐 Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Arabic (Native)</span>
+                        <span class="skill-tag">English (Fluent)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects -->
+        <section class="section">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Mada Theater Academy Website</h3>
+                    <div class="role">Web & Graphic Designer</div>
+                    <div class="period">2022 - 2023</div>
+                    <div class="description">
+                        Designed and developed a complete digital presence for a performing arts academy. Created responsive website architecture, managed content strategy, and developed a cohesive visual brand across all digital platforms.
+                    </div>
+                    <div class="tech-used">
+                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag">Adobe Photoshop</span>
+                        <span class="tech-tag">Adobe Illustrator</span>
+                        <span class="tech-tag">Social Media Design</span>
+                        <span class="tech-tag">Content Management</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Merhi Trading Digital Platform</h3>
+                    <div class="role">Social Media & Data Management</div>
+                    <div class="period">2021 - 2022</div>
+                    <div class="description">
+                        Developed and implemented a comprehensive digital strategy for a trading company. Created automated data entry systems, managed social media campaigns, and optimized content scheduling workflows.
+                    </div>
+                    <div class="tech-used">
+                        <span class="tech-tag">Data Management</span>
+                        <span class="tech-tag">Social Media Marketing</span>
+                        <span class="tech-tag">Content Strategy</span>
+                        <span class="tech-tag">Process Automation</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Al Diyar Newspaper Digital Edition</h3>
+                    <div class="role">News Editor & Digital Content Manager</div>
+                    <div class="period">2014 - 2021</div>
+                    <div class="description">
+                        Led digital transformation initiatives for a major newspaper. Managed editorial workflows, coordinated multimedia content production, and optimized content delivery for both print and digital platforms.
+                    </div>
+                    <div class="tech-used">
+                        <span class="tech-tag">Content Management</span>
+                        <span class="tech-tag">Editorial Systems</span>
+                        <span class="tech-tag">Multimedia Production</span>
+                        <span class="tech-tag">Digital Publishing</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section class="section">
+            <h2>Professional Journey</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>Web & Graphic Designer</h3>
+                    <div class="company">Mada Theater Academy (2022 - 2023)</div>
+                    <p>Led comprehensive digital design initiatives, creating compelling web experiences and visual content that enhanced the academy's online presence and student engagement.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Social Media & Data Entry Assistant</h3>
+                    <div class="company">Merhi Trading (2021 - 2022)</div>
+                    <p>Streamlined business operations through efficient data management systems and strategic social media marketing, improving both internal workflows and external brand visibility.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Branch Manager</h3>
+                    <div class="company">Obeid Center (2014 - 2021)</div>
+                    <p>Successfully managed multi-faceted retail operations, demonstrating leadership in team management, strategic planning, and customer relationship building while consistently exceeding sales targets.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>News Editor</h3>
+                    <div class="company">Al Diyar Newspaper</div>
+                    <p>Coordinated editorial content across print and digital platforms, working with diverse teams to deliver timely, accurate news coverage while maintaining high editorial standards.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>BSc in Computer Science</h3>
+                    <div class="school">Modern University for Business and Science, Aley</div>
+                    <div class="period">2020 - 2024</div>
+                </div>
+                
+                <div class="education-card">
+                    <h3>Diploma in Journalism</h3>
+                    <div class="school">Lebanese University, UNESCO, Beirut</div>
+                    <div class="period">2011 - 2014</div>
+                </div>
+                
+                <div class="education-card">
+                    <h3>Secondary Education</h3>
+                    <div class="school">Maron Aboud High School</div>
+                    <div class="period">2009 - 2011</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <h2>Let's Build Something Amazing Together</h2>
+            <p>Ready to bring your next project to life? I'm passionate about creating innovative solutions that make a real impact.</p>
+            <a href="mailto:ceasar.elkhatib@gmail.com" class="cta-button">Get In Touch</a>
+        </section>
+    </div>
+</body>
+</html>
